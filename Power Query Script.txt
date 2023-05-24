@@ -1,0 +1,12 @@
+let
+    Source = Excel.Workbook(File.Contents("C:\Users\Nnamani Matthew R\OneDrive\Desktop\HotelDataset\Hotel Data.xlsx"), null, true),
+    Data_Sheet = Source{[Item="Data",Kind="Sheet"]}[Data],
+    #"Promoted Headers" = Table.PromoteHeaders(Data_Sheet, [PromoteAllScalars=true]),
+    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Booking ID", Int64.Type}, {"Hotel", type text}, {"Booking Date", type date}, {"Arrival Date", type date}, {"Lead Time", Int64.Type}, {"Nights", Int64.Type}, {"Guests", Int64.Type}, {"Distribution Channel", type text}, {"Customer Type", type text}, {"Country", type text}, {"Deposit Type", type text}, {"Avg Daily Rate", type number}, {"Status", type text}, {"Status Update", type date}, {"Cancelled (0/1)", Int64.Type}, {"Revenue", type number}, {"Revenue Loss", type number}, {"Column18", type any}}),
+    #"Merged Queries" = Table.NestedJoin(#"Changed Type", {"Hotel"}, Lookup_Hotel_Table, {"Hotel"}, "Lookup_Hotel_Table", JoinKind.LeftOuter),
+    #"Expanded Lookup_Hotel_Table" = Table.ExpandTableColumn(#"Merged Queries", "Lookup_Hotel_Table", {"Hotel ID"}, {"Lookup_Hotel_Table.Hotel ID"}),
+    #"Removed Columns" = Table.RemoveColumns(#"Expanded Lookup_Hotel_Table",{"Column18", "Hotel"}),
+    #"Group Lead Time" = Table.AddColumn(#"Removed Columns", "LeadTime Group", each if [Lead Time] <= 30 then "0 - 30 Days" else "> 30 Days"),
+    #"Changed Type1" = Table.TransformColumnTypes(#"Group Lead Time",{{"LeadTime Group", type text}})
+in
+    #"Changed Type1"
