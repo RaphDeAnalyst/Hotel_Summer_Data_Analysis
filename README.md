@@ -32,7 +32,9 @@ Since this project is focused on July and August of 2016, the filter pane is use
 
 ![Screenshot 2023-05-24 064015](https://github.com/RaphDeAnalyst/Hotel_Summer_Data_Analysis/assets/76891015/14018d0f-106a-4b74-be35-67682c0cdb2f)
 
-The full report can be found in the [Project Report] (
+Go to [Project Report](https://github.com/RaphDeAnalyst/Hotel_Summer_Data_Analysis/blob/main/Project%20Report.pdf) for the full report
+
+![FULLDASHBOARD](https://github.com/RaphDeAnalyst/Hotel_Summer_Data_Analysis/assets/76891015/b88faf77-3a68-4dea-89e6-c83c8d8ae0d7)
 
 
 
