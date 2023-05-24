@@ -32,7 +32,9 @@ Since this project is focused on July and August of 2016, the filter pane is use
 
 ![Screenshot 2023-05-24 064015](https://github.com/RaphDeAnalyst/Hotel_Summer_Data_Analysis/assets/76891015/14018d0f-106a-4b74-be35-67682c0cdb2f)
 
-The full report can be found here 
+The full report can be found in the [Project Report] (
+
+
 
 ## Conclusion
 1. It was discovered from the analysis that the main contributor to the high cancellatuon rate was high average rate during the summer period
